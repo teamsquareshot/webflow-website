@@ -255,6 +255,7 @@ const calculator = function() {
 	
 	{//checkPlanSelected
 		let plan = checkPlanSelected(); // object
+		console.log(plan)
 		let getImagePrice = summaryData.forEach(el => {
 				if (el.price) {
 					let priceItem = el.price[plan.dataName]
