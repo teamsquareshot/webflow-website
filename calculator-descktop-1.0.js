@@ -44,7 +44,7 @@ let summaryData = [
 	 },
 	 {planType: "enterprise", value: 3, dataName: "plan_c", price: 0, state: false, 
 		planInfo: {activeDiscount: "$2,000 per year", disableDiscount: "$1400 every 6 months"},
-		planPrice: {activeDiscount: 2000, disableDiscount: 2400}
+		planPrice: {activeDiscount: 2000, disableDiscount: 2800}
 	 },
 	 {name: "discount", item: 20, state: false},
 	 {dataName: "image_total_count", total: 0}, 
