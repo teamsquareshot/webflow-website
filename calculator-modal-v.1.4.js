@@ -6,7 +6,8 @@ const frontData = document.querySelectorAll('span'); // all span on page
 const imageCheckbox = document.querySelectorAll('.dropdown-checkbox');
 const imageCheckboxChildNodes = document.querySelectorAll('.checkbox-block');
 //const formData = document.forms;
-const formData[0] = document.querySelector("#wf-form-calculator");
+let formData = [];
+formData[0] = document.querySelector("#wf-form-calculator");
 
 //modal observer
 {
