@@ -483,7 +483,7 @@ let AllSubtotal = 0, skip=false;
 	if(skip){AllSubtotal="TBD"}
 	finCart.cart.push({allSubtotal:AllSubtotal})
     let param = JSON.stringify(finCart.cart)
-		window.open('https://app.squareshot.com/version-test/new-request/step1?cart='+param, '_blank');
+		window.open('https://app.squareshot.com/new-request/step1?cart='+param, '_blank');
     console.log(finCart)
   })//click
 
