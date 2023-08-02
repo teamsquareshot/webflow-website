@@ -372,12 +372,13 @@ addOnsArr = []
     //let valAll = subTotal + (itemIroning*3);
 	
     if(valAll > 1000){
+	    showMinOrderBlock(false)
     let thousAll = Math.floor(valAll/1000)
     let restAll = valAll-thousAll*1000
     let reAll
     if(restAll<10){reAll="00"+restAll}else if(restAll<100){reAll="0"+restAll}else{reAll=restAll}
     cartSubtotal.innerHTML ="SUBTOTAL: $"+ thousAll+","+reAll
-    }else{cartSubtotal.innerHTML = "SUBTOTAL: $"+valAll; if(valAll=< 300){showMinOrderBlock(true)}}
+    }else{cartSubtotal.innerHTML = "SUBTOTAL: $"+valAll; if(valAll <= 300){showMinOrderBlock(true)}}
     }else{
     cartSubtotal.innerHTML = "SUBTOTAL: $(TBD)";
 	    showMinOrderBlock(true)
