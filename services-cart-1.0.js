@@ -7,8 +7,17 @@ let cartBG = document.querySelector('.cart-bg')
 let cartExist_e = document.querySelector('.cart-exist')
 let cartEmpty_e = document.querySelector('.cart-empty')
 let cartPanel = document.querySelector('.cart-panel')
+let minOrderBlock = document.querySelector('.min-order-block')
 var scrollPosition = 0;
 
+function showMinOrderBlock(stat){
+	if(stat){
+	minOrderBlock.classList.remove("min-order-block--hide")	
+	}else{
+	minOrderBlock.classList.add("min-order-block--hide")		
+	}	
+}
+	
 function showCart(stat){
 if(stat){
 var oldWidth = $body.innerWidth();
@@ -368,9 +377,10 @@ addOnsArr = []
     let reAll
     if(restAll<10){reAll="00"+restAll}else if(restAll<100){reAll="0"+restAll}else{reAll=restAll}
     cartSubtotal.innerHTML ="SUBTOTAL: $"+ thousAll+","+reAll
-    }else{cartSubtotal.innerHTML = "SUBTOTAL: $"+valAll}
+    }else{cartSubtotal.innerHTML = "SUBTOTAL: $"+valAll; if(valAll=< 300){showMinOrderBlock(true)}}
     }else{
-    cartSubtotal.innerHTML = "SUBTOTAL: $(TBD)"
+    cartSubtotal.innerHTML = "SUBTOTAL: $(TBD)";
+	    showMinOrderBlock(true)
     }
     
     localCart_fill.cart.forEach((cartItem)=>{if(cartItem.count>0||cartItem.count =="skip")countProd++})
