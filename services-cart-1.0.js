@@ -8,8 +8,12 @@ let cartExist_e = document.querySelector('.cart-exist')
 let cartEmpty_e = document.querySelector('.cart-empty')
 let cartPanel = document.querySelector('.cart-panel')
 let minOrderBlock = document.querySelector('.min-order-block')
+let moreModalBg = document.querySelector('.more-modal-dg')	
 var scrollPosition = 0;
 
+more_info_cart.addEventListener('click', ()=>{moreModalBg.style.display = "flex"})
+more_info_cart_ex.addEventListener('click', ()=>{moreModalBg.style.display = "flex"})
+	
 function showMinOrderBlock(stat){
 	if(stat){
 	minOrderBlock.classList.remove("min-order-block--hide")	
