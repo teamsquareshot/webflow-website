@@ -383,7 +383,7 @@ addOnsArr = []
     let reAll
     if(restAll<10){reAll="00"+restAll}else if(restAll<100){reAll="0"+restAll}else{reAll=restAll}
     cartSubtotal.innerHTML ="SUBTOTAL: $"+ thousAll+","+reAll
-    }else{cartSubtotal.innerHTML = "SUBTOTAL: $"+valAll; if(valAll <= 300){showMinOrderBlock(true)}}
+    }else{cartSubtotal.innerHTML = "SUBTOTAL: $"+valAll; if(valAll < 300){showMinOrderBlock(true)}}
     }else{
     cartSubtotal.innerHTML = "SUBTOTAL: $(TBD)";
 	    showMinOrderBlock(true)
