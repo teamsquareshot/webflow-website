@@ -54,6 +54,7 @@ cartItemHead.classList.remove("head-item-hide")
 cartExist_e.classList.add("cart-exist-hide")
 cartEmpty_e.classList.remove("cart-empty-hide")
 cartItemHead.classList.add("head-item-hide")
+minOrderBlock.classList.add("min-order-block--hide")
 }
 }
 function clearCart(){
