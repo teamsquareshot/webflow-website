@@ -419,7 +419,7 @@ addOns_list.forEach((addOns)=>{
 			cancel.removeEventListener('click', hideModal)
 			addBtn.removeEventListener('click', setVal)
 		}
-		function hideModal(){addOnsMod(modal, false);clearEvList()}
+		function hideModal(){addOnsMod(modal, false);clearEvList();scrollOn()}
 		close.addEventListener('click', hideModal)
 		cancel.addEventListener('click', hideModal)
 		
