@@ -281,7 +281,7 @@ function createCartIroning(name, count, price){
     
     let option_title_ironimg = document.createElement("div");
     option_title_ironimg.classList.add("option-title");
-    option_title_ironimg.innerHTML = "Number of items:&nbsp;"
+    option_title_ironimg.innerHTML = "Quantity:&nbsp;"
     
     let option_value_ironimg = document.createElement("div");
     option_value_ironimg.classList.add("option-value");
