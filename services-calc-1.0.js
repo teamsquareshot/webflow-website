@@ -23,6 +23,29 @@ title: catTitle.innerHTML,
 img:"http",
 addons:[]
 }
+
+/****** SCROLL CONTROLL on/off  ******/
+var Webflow = Webflow || [];
+var $body = $(document.body);
+var scrollPosition = 0;
+
+function scrollOff(){
+var oldWidth = $body.innerWidth();
+scrollPosition = window.pageYOffset;
+$body.css('overflow', 'hidden');
+$body.css('position', 'fixed');
+$body.css('top', `-${scrollPosition}px`);
+$body.width(oldWidth);
+}
+function scrollOn(){
+if ($body.css('overflow') != 'hidden') { scrollPosition = window.pageYOffset; }
+$body.css('overflow', '');
+$body.css('position', '');
+$body.css('top', '');
+$body.width('');
+$(window).scrollTop(scrollPosition);
+}
+
 function getImageForCart(obj){
 	let objTime = document.querySelector('#option-list-objects')
 	let obj_list = objTime.querySelectorAll('.option-item')
@@ -359,6 +382,21 @@ recalcIroning()
 let addOns_list = document.querySelectorAll('.add-ons-wrap')
 
 addOns_list.forEach((addOns)=>{
+	let fixPrice = getComputedStyle(addOns.querySelector('.number-of-item-blok')).display == 'none'?true:false;
+	if(fixPrice){
+		addOns.querySelector('.input-number-img').value = 1;
+	}
+	let valPriceAddOnse = addOns.querySelector('.modal-porice-wrap').children[1]
+	let val= Number(valPriceAddOnse.innerHTML)
+  
+	if(val > 1000){
+		let thous = Math.floor(val/1000)
+		let rest = val-thous*1000
+		let re
+		if(rest<10){re="00"+rest}else if(rest<100){re="0"+rest}else{re=rest}
+		valPriceAddOnse.innerHTML = thous+","+re
+	}else{valPriceAddOnse.innerHTML = val}
+  
 	let name = addOns.querySelector(".steam-title").innerHTML
 	let btnAddOnsRemove = addOns.querySelector('.btn-add-ons-remove')
 	let price = Number(addOns.querySelector('.ons-item-price').innerHTML)
@@ -371,6 +409,8 @@ addOns_list.forEach((addOns)=>{
 		let addBtn = modal.querySelector(".set-modal-add")
 		let onsItems = addOns.querySelector(".ons-items")
 		let onsSum = addOns.querySelector(".ons-sum")
+		
+		scrollOff()
 		
 		addOnsMod(modal, true)
 		
@@ -389,6 +429,7 @@ addOns_list.forEach((addOns)=>{
 				input.oninput = function() {input.classList.remove("input-number-img-err")};
 				input.classList.add("input-number-img-err");return;
 			}
+			scrollOn()
 			currentPos.addons.find(addons => addons.name === name).count = Number(input.value)
 
 			onsItems.innerHTML = input.value
