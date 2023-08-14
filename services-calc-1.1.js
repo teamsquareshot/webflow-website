@@ -464,6 +464,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     /************ TEST ADD ONS *************/
+    let modalRemove = document.querySelector(".pop-up-add-ons-remove")
+    let modalRemove_close = document.querySelector(".add-ons-remove-close")
+    function modalRemove_hide(){modalRemove.classList.remove("pop-up-add-ons-remove--visible")}
+    modalRemove_close.addEventListener("click", ()=>{modalRemove_hide()})
 
     let addOns_list = document.querySelectorAll('.add-ons-wrap')
 
@@ -536,8 +540,7 @@ document.addEventListener('DOMContentLoaded', function () {
             let addBtn = modal.querySelector(".set-modal-add")
             let onsItems = addOns.querySelector(".ons-items")
             let onsSum = addOns.querySelector(".ons-sum")
-            let modalRemove = document.querySelector(".pop-up-add-ons-remove")
-            
+
             scrollOff()
 
             addOnsMod(modal, true)
@@ -610,8 +613,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 clearEvList()
                 modalRemove.classList.add("pop-up-add-ons-remove--visible")
                 setTimeout(()=>{
-                    modalRemove.classList.remove("pop-up-add-ons-remove--visible")
-                },2000)
+                    modalRemove_hide()
+                },3000)
             })
         })
     })
