@@ -536,7 +536,8 @@ document.addEventListener('DOMContentLoaded', function () {
             let addBtn = modal.querySelector(".set-modal-add")
             let onsItems = addOns.querySelector(".ons-items")
             let onsSum = addOns.querySelector(".ons-sum")
-
+            let modalRemove = document.querySelector(".pop-up-add-ons-remove")
+            
             scrollOff()
 
             addOnsMod(modal, true)
@@ -607,6 +608,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 ironingActive(addOns, false);
                 recalcIroning()
                 clearEvList()
+                modalRemove.classList.add("pop-up-add-ons-remove--visible")
+                setTimeout(()=>{
+                    modalRemove.classList.remove("pop-up-add-ons-remove--visible")
+                },2000)
             })
         })
     })
