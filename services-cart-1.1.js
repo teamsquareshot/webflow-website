@@ -323,7 +323,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let cart_item_price = document.createElement("div");
         cart_item_price.classList.add("cart-item-price");
         if(price === "TBD"){
-            cart_item_price.innerHTML = "TBD"
+            cart_item_price.innerHTML = "$(TBD)"
         }else{
             let val = count * price;
             if (val > 1000) {
