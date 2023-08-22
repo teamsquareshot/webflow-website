@@ -296,7 +296,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     val = "TBD";
                     return;
                 }else{
-                    if(ons.count > 0 && ons.price !== "TBD"){
+                    if(val !== "TBD" && ons.count > 0 && ons.price !== "TBD"){
                         val += ons.count * ons.price
                     }
                 }
