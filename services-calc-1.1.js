@@ -596,7 +596,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
 
                 onsItems.innerHTML = input.value
-                onsSum.innerHTML = addOns_option_stat?addOnsOption_price:input.value * price
+                let onsSum_text = addOns_option_stat?addOnsOption_price:input.value * price
+                
+                onsSum.innerHTML = onsSum_text==="TBD"? "("+onsSum_text+")":onsSum_text
                 ironingActive(addOns, true)
                 //console.log(currentPos)
                 addOnsMod(modal, false)
