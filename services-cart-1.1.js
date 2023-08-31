@@ -342,6 +342,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 cart_item_price.innerHTML = "$" + val
             }
         }
+        
+        if(full_addOns_obj.price_option){
+            cart_item_price.innerHTML = cart_item_price.innerHTML + full_addOns_obj.price_option
+        }
 
 
         let cart_ironimg_count_block = document.createElement("div");
