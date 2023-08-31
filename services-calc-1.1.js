@@ -498,7 +498,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         status: false,
                         name: option.querySelector('.t-16-700').innerHTML,
                         desc: option.querySelector('.t-16-400').innerHTML,
-                        price:option.querySelector('.modal-porice-wrap').children[1].innerHTML
+                        price:option.querySelector('.modal-porice-wrap').children[1].innerHTML,
+
+                        price_option: getComputedStyle(option.querySelector('.price-option')).display == 'none'?false: option.querySelector('.price-option div').innerHTML,
                     })
                     option.addEventListener("click", ()=>{
                         addOnsOptionActive(addOns, option, addOnsOption_obj)
@@ -508,7 +510,7 @@ document.addEventListener('DOMContentLoaded', function () {
             })
         }
 
-
+        
         let valPriceAddOnse = addOns.querySelector('.modal-porice-wrap').children[1]
         let val = Number(valPriceAddOnse.innerHTML)
 
@@ -532,7 +534,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let btnAddOnsRemove = addOns.querySelector('.btn-add-ons-remove')
         let price = Number(addOns.querySelector('.ons-item-price').innerHTML)
 
-        currentPos.addons.push({option: addOns_option_stat, option_name:"", option_desc: "", name: name, count: 0, price: price})
+        currentPos.addons.push({option: addOns_option_stat, option_name:"", option_desc: "", name: name, count: 0, price: price, price_option: false})
         addOns.querySelector(".add-ons-btn").addEventListener('click', () => {// Открываем модалку Адд Онс
             let modal = addOns.querySelector(".steam-modal-bg")
             let close = modal.querySelector(".cancel-icon")
@@ -582,14 +584,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
                 scrollOn()
 
-
+                let current_option = addOnsOption_obj.find(opt => opt.status === true)
                 if(addOns_option_stat){
-                    let current_option = addOnsOption_obj.find(opt => opt.status === true)
+                   
                     addOnsOption_price=current_option.price
                     currentPos.addons.find(addons => addons.name === name).count = 1
                     currentPos.addons.find(addons => addons.name === name).price = addOnsOption_price
                     currentPos.addons.find(addons => addons.name === name).option_name = current_option.name
                     currentPos.addons.find(addons => addons.name === name).option_desc = current_option.desc
+                    currentPos.addons.find(addons => addons.name === name).price_option = current_option.price_option
 
                 }else{
                     currentPos.addons.find(addons => addons.name === name).count = Number(input.value)
@@ -599,6 +602,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 let onsSum_text = addOns_option_stat?addOnsOption_price:input.value * price
                 
                 onsSum.innerHTML = onsSum_text==="TBD"? "("+onsSum_text+")":onsSum_text
+
+                
+                if(current_option.price_option){
+                    onsSum.innerHTML = onsSum.innerHTML+current_option.price_option
+                }
+        
                 ironingActive(addOns, true)
                 //console.log(currentPos)
                 addOnsMod(modal, false)
