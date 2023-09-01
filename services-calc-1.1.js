@@ -604,7 +604,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 onsSum.innerHTML = onsSum_text==="TBD"? "("+onsSum_text+")":onsSum_text
 
                 
-                if(current_option.price_option){
+                if(current_option?.price_option && current_option.price_option){
                     onsSum.innerHTML = onsSum.innerHTML+current_option.price_option
                 }
         
