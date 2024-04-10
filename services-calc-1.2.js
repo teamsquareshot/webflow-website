@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let sumPriceText = 0;
         currentPos.options.forEach((option)=>{
             sumPriceText = 0;
-            let modelOptions = currentPos.options.find(item => item.groupName === "model_option");
+            let modelOptions = currentPos.options.find(item => item.groupName === "model_source");//model_option
             let modelType = modelOptions ? modelOptions.value:""
             let partOptionForProduct = option.value//?option.value:"single"
             let extractPriceObj = price[currentPos.shoot + "_" + partOptionForProduct] || price[modelType + "_" + option.value]
@@ -502,7 +502,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             document.querySelector(`[data-block-show="${searchAttributClose}"]`).classList.add("usage-rights-notice--hide")
                         }
                     }
-                    let modelOptions = currentPos.options.find(item => item.groupName === "model_option");
+                    let modelOptions = currentPos.options.find(item => item.groupName === "model_source");//model_option
                     let modelType = modelOptions ? modelOptions.value:""
                     let partOptionForProduct = option.value?option.value:""
                     let extractPriceObj = price[currentPos.shoot + "_" + optionVal] || price[modelType + "_" + optionVal]
