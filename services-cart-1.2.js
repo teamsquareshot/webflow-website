@@ -656,7 +656,12 @@ document.addEventListener('DOMContentLoaded', function () {
                         addOnsArr.push(itemAddCart)
                     }
                 })
+            }
 
+            if (!cartItem.hasOwnProperty('options')) {
+                localStorage.removeItem('cart');
+                CartFilling(getLocalCart());
+                return;
             }
 
             //let itemCart = createCartItem(cartItem, id)
