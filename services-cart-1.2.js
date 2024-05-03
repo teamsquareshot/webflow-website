@@ -779,7 +779,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let idCart = Math.random().toString(36).substr(2, 9);
         let date = new Date(Date.now() + (24 * 60 * 60 * 1000)); // 1 Day
         date = date.toUTCString();
-        document.cookie = "_chip=" + idCart + "; expires=" + date; // domain=squareshot.com;
+        document.cookie = "_chip=" + idCart + "; domain=squareshot.com; expires=" + date; // 
 
         
         let finCart = {cart: []}
