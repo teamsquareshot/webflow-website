@@ -777,9 +777,9 @@ document.addEventListener('DOMContentLoaded', function () {
     cartContinue.addEventListener('click', () => {
         
         let idCart = Math.random().toString(36).substr(2, 9);
-        let date = new Date(Date.now() + (24 * 60 * 60 * 1000)); // 1 Day
-        date = date.toUTCString();
-        document.cookie = "chip=" + idCart + "; domain=.squareshot.com; expires=" + date; // 
+        // let date = new Date(Date.now() + (24 * 60 * 60 * 1000)); // 1 Day
+        // date = date.toUTCString();
+        // document.cookie = "chip=" + idCart + "; domain=.squareshot.com; expires=" + date; 
 
         
         let finCart = {cart: []}
@@ -921,8 +921,8 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        window.open('https://app.squareshot.com/new-request/step1', '_blank');
-        // window.open('https://app.squareshot.com/new-request/step1?id=' + idCart, '_blank');
+        window.open('https://app.squareshot.com/new-request/step1?id=' + idCart, '_blank');
+        // window.open('https://app.squareshot.com/new-request/step1', '_blank');
         // window.open('https://app.squareshot.com/new-request/step1?cart=' + param, '_blank');
         console.log(localCart_fin)
     })//click
