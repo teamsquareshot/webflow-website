@@ -539,8 +539,13 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         let cartItemPrice = creareDomElement("div", "cart-item-price", cartItemPriceText)
-        let countShootBlok = creareDomElement("div", "sum-pattern-text-cart", item.count ==="skip" ? "" : item.count>1?`&nbsp;(${item.count} images)`):`&nbsp;(${item.count} image)`
-
+        
+        let countShootBlok = creareDomElement(
+          "div", 
+          "sum-pattern-text-cart", 
+          item.count === "skip" ? "" : item.count > 1 ? `&nbsp;(${item.count} images)` : `&nbsp;(${item.count} image)`
+        );
+        
         let cartItemAddonsList = creareDomElement("div", "cart-item-addons-list")
         item.addons.forEach((addOnse)=>{
             let cartItemAddons = creareDomElement("div", "cart-item-addons")
