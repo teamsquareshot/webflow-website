@@ -620,8 +620,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     changeOptionCurrentPos(groupName,
                         optionTitle,
                         optionTitle,
-                        additionallyPrice?1:0,
+                        additionallyPrice?1:null,
                         additionallyPrice)
+
                     additionally.querySelector(".btn-skip").classList.add("button-select-active")
                     if(additionally.querySelector(".info-block-for-skip")){
                         additionally.querySelector(".info-block-for-skip").classList.remove("info-block-for-skip--hide")
@@ -707,6 +708,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         if(optionCount!== null){
             option.count = optionCount
+        }
+        if(groupName === "outfits" && optionCount!== null){
+            option.count = 0
         }
         if(optionPrice!== null){
             option.price = optionPrice
