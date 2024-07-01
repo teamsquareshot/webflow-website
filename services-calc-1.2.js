@@ -620,7 +620,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     changeOptionCurrentPos(groupName,
                         optionTitle,
                         optionTitle,
-                        additionallyPrice?1:null,
+                        additionallyPrice?1:0,
                         additionallyPrice)
                     additionally.querySelector(".btn-skip").classList.add("button-select-active")
                     if(additionally.querySelector(".info-block-for-skip")){
